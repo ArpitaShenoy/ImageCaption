@@ -1,0 +1,4 @@
+streamlit
+# streamlit.cli
+google-generativeai
+python-dotenv
