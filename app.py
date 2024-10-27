@@ -11,7 +11,10 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 model=genai.GenerativeModel("gemini-1.5-pro")
 
 def get_gemini_respone(image):
-    response=model.generate_content(["Caption this image",image], temperature=1.1) # input -> describe what you want to do with the image
+    response=model.generate_content(["Caption this image",image], 
+                                    generation_config=genai.types.GenerationConfig(
+                    temperature=1.1
+                )) # input -> describe what you want to do with the image
     return response.text
 
 st.set_page_config(page_title="Image Caption Generator")
